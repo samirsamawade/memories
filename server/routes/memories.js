@@ -1,9 +1,8 @@
 import express from 'express';
+import { PostsRoute } from '../controllers/posts.js';
 const router = express.Router();
 
-router.get('/', (req,res) =>{
-    res.send("Hello from Memories");
-});
+router.get('/test', PostsRoute);
 
 
 export default router;
