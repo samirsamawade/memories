@@ -42,3 +42,13 @@ export const deleteEvent = async (req, res) => {
       res.json({ Status: false, Message: err });
       }
     };
+
+    export const getAllEvents = async (req, res) => {
+      try{
+        const event = await Event.find();
+        res.json({ Status: true, Message: event });
+      }
+      catch (err) {
+        res.json({ Status: false, Message: err });
+        }
+      };

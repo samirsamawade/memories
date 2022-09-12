@@ -40,7 +40,7 @@ export const getPost = async (req, res) => {
     res.json({ Status: false, Message: err });
     }
   };
-export const getAllPost = async (req, res) => {
+export const getAllPosts = async (req, res) => {
   try{
     const posts = await Posts.find().populate("event");
     res.json({ Status: true, Message: posts });
