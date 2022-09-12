@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import memories from './routes/memories.js'
+import posts from './routes/posts.js'
 
 //initalise
 const app = express();
@@ -19,4 +19,4 @@ mongoose.connect(process.env.MONGO_URL, (err)=>{
         console.log(`mongoose connected`)
 })
 
-app.use('/api/memories', memories)
+app.use('/api/posts', posts)
