@@ -29,3 +29,13 @@ export const deletePost = async (req, res) => {
     res.json({ Status: false, Message: err });
     }
   };
+export const getPost = async (req, res) => {
+  try{
+    const {_id} = req.params;
+    const post = await Posts.findById(_id);
+    res.json({ Status: true, Message: post });
+  }
+  catch (err) {
+    res.json({ Status: false, Message: err });
+    }
+  };
