@@ -39,3 +39,12 @@ export const getPost = async (req, res) => {
     res.json({ Status: false, Message: err });
     }
   };
+export const getAllPost = async (req, res) => {
+  try{
+    const posts = await Posts.find(req.body);
+    res.json({ Status: true, Message: posts });
+  }
+  catch (err) {
+    res.json({ Status: false, Message: err });
+    }
+  };
