@@ -15,20 +15,20 @@ const postSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    comment: {
+    event: {
       type: ObjectId,
-      ref: 'Comments',
+      ref: 'Event',
     },
   },
   { timestamps: true }
 );
 
-const commentSchema = new mongoose.Schema({
-  comment: { type: String},
-  author: { type: String, required: true},
+const eventSchema = new mongoose.Schema({
+  title: { type: String},
+  description: { type: String},
 });
 
 const posts = mongoose.model('Posts', postSchema);
-const comments = mongoose.model('Comments', commentSchema);
+const event = mongoose.model('Event', eventSchema);
 
-module.exports = {Posts: posts, Comments: comments}
+module.exports = {Posts: posts, Event: event}

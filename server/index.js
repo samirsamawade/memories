@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import posts from './routes/posts.js'
+import event from './routes/event.js'
 
 //initalise
 const app = express();
@@ -20,3 +21,4 @@ mongoose.connect(process.env.MONGO_URL, (err)=>{
 })
 
 app.use('/api/posts', posts)
+app.use('/api/event', event)

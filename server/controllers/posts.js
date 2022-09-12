@@ -1,11 +1,10 @@
-// const {Posts} = require("../models/posts");
 const { Posts } = require("../models/posts");
 
 
 export const registerPost = async (req, res) => {
   try {
-    const {title, description, budget} = req.body;
-    const post = await new Posts({title, description, budget}).save();
+    const {title, description, budget, event} = req.body;
+    const post = await new Posts({title, description, budget, event}).save();
     res.json({ Status: true, Message: post });
   } catch (err) {
     res.json({ Status: false, Message: err });
@@ -43,7 +42,7 @@ export const getPost = async (req, res) => {
   };
 export const getAllPost = async (req, res) => {
   try{
-    const posts = await Posts.find();
+    const posts = await Posts.find().populate("event");
     res.json({ Status: true, Message: posts });
   }
   catch (err) {
