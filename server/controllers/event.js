@@ -31,3 +31,14 @@ export const deleteEvent = async (req, res) => {
     res.json({ Status: false, Message: err });
     }
   };
+
+  export const getEvent = async (req, res) => {
+    try{
+      const {_id} = req.params;
+      const event = await Event.findById(_id);
+      res.json({ Status: true, Message: event });
+    }
+    catch (err) {
+      res.json({ Status: false, Message: err });
+      }
+    };
