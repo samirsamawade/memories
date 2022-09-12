@@ -41,7 +41,7 @@ export const getPost = async (req, res) => {
   };
 export const getAllPost = async (req, res) => {
   try{
-    const posts = await Posts.find(req.body);
+    const posts = await Posts.find();
     res.json({ Status: true, Message: posts });
   }
   catch (err) {
