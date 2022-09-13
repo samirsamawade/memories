@@ -9,7 +9,7 @@ const Post = ({ post }) => (
             </div>
             <div className="d-flex justify-content-between">
                 <span>{post.budget}</span>
-                <span className='btn btn-danger'>Delete</span>
+                <button className='btn btn-danger'>Delete</button>
             </div>
         </div>
     </div>
