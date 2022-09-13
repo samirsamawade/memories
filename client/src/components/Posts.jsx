@@ -1,6 +1,16 @@
+import { PostData } from './../data';
+import Post from './Post';
+
 const Posts = () => (
     <div className="container">
-        <h1 className="text-center m-4 fs-1">Posts</h1>
+        <div className='row'>
+        {
+            PostData.map((post)=>(
+                <Post post= {post}/>
+            )
+            )
+        }
+                </div>
         </div>
 )
 
