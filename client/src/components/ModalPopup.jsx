@@ -30,6 +30,7 @@ const ModalPopup = ({ show, setShow }) => {
                   },
             });
             setPostData(initialData)
+            setShow(!show);
             console.log(data);
         }
         catch(err){
