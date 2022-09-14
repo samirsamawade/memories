@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 const Posts = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
+    
+    
 
     useEffect(() => {
         const getAllPosts = async () => {
