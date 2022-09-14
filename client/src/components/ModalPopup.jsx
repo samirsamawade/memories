@@ -29,6 +29,7 @@ const ModalPopup = ({ show, setShow }) => {
                     color: '#2a7937',
                   },
             });
+            setPostData(initialData)
             console.log(data);
         }
         catch(err){
