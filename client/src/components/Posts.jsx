@@ -1,29 +1,36 @@
 import { PostData } from './../data';
 import Post from './Post';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Posts = () => {
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         const getAllPosts = async () => {
             try {
-                const posts = await axios.get('http://localhost:9000/api/posts/get-all-posts');
-            console.log('Posts', posts);
+                setLoading(true);
+                const { data } = await axios.get('http://localhost:9000/api/posts/get-all-posts');
+                setPosts(data.message);
+                setLoading(false);
             }
-            catch(err){
+            catch (err) {
                 console.log(err);
             }
         };
         getAllPosts();
     }, []);
 
+    if (loading) return <h1>Loading</h1>;
+
     return (
 
         <div className="container">
             <div className='row'>
                 {
-                    PostData.map((post) => (
-                        <Post post={post} />
+                    posts.map((post, index) => (
+                        <Post key={index} post={post} />
                     )
                     )
                 }
