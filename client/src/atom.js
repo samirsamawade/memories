@@ -1,4 +1,11 @@
-const textState = atom({
-    key: 'modalShow', // unique ID (with respect to other atoms/selectors)
+import {atom} from 'recoil';
+
+export const modalState = atom({
+    key: "show",
     default: false, // default value (aka initial value)
-  });
+});
+export const updateState = atom({
+    key: "update",
+    default: false, // default value (aka initial value)
+});
+

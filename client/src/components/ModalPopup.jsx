@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useRecoilState } from 'recoil';
+import { modalState, updateState } from '../atom';
 
 
-const ModalPopup = ({ show, setShow }) => {
+const ModalPopup = () => {
+    const [show, setShow] = useRecoilState(modalState);
+    const [update, setUpdate] = useRecoilState(updateState);
+
     const initialData = {
         title: '',
         description: '',
@@ -31,6 +36,7 @@ const ModalPopup = ({ show, setShow }) => {
             });
             setPostData(initialData)
             setShow(!show);
+            setUpdate(!update);
             console.log(data);
         }
         catch(err){

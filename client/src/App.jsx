@@ -1,11 +1,12 @@
 import './App.css'
 import Posts from './components/Posts';
-import { useState } from 'react';
 import ModalPopup from './components/ModalPopup';
+import { useRecoilState } from 'recoil';
+import { modalState } from './atom';
 
 
 function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useRecoilState(modalState);
 
   return (
     <div className='container'>
@@ -14,7 +15,7 @@ function App() {
         <button className='btn btn-success' onClick={()=>setShow(!show)}>Create Post</button>
       </div>
       <Posts />
-      <ModalPopup show={show} setShow={setShow}/>
+      <ModalPopup />
     </div>
   )
 }

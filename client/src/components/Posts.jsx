@@ -1,11 +1,14 @@
-import { PostData } from './../data';
 import Post from './Post';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { updateState } from '../atom';
+import { useRecoilState } from 'recoil';
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [update, setUpdate] = useRecoilState(updateState);
+
     
     
 
@@ -22,7 +25,7 @@ const Posts = () => {
             }
         };
         getAllPosts();
-    }, []);
+    }, [update]);
 
     if (loading) return <h1>Loading</h1>;
 
