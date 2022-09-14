@@ -26,7 +26,8 @@ const postSchema = new mongoose.Schema(
 const eventSchema = new mongoose.Schema({
   title: { type: String},
   description: { type: String},
-});
+},
+{ timestamps: true });
 
 const posts = mongoose.model('Posts', postSchema);
 const event = mongoose.model('Event', eventSchema);
