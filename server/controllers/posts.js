@@ -42,7 +42,7 @@ export const getPost = async (req, res) => {
   };
 export const getAllPosts = async (req, res) => {
   try{
-    const posts = await Posts.find().populate("event");
+    const posts = await Posts.find().populate("event").sort({"updatedAt": -1});
     res.json({ Status: true, message: posts });
   }
   catch (err) {
