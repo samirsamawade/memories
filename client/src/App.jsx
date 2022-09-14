@@ -3,6 +3,7 @@ import Posts from './components/Posts';
 import { useState } from 'react';
 import ModalPopup from './components/ModalPopup';
 
+
 function App() {
   const [show, setShow] = useState(false);
 

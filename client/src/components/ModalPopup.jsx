@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+
 
 const ModalPopup = ({ show, setShow }) => {
     const initialData = {
@@ -18,6 +20,15 @@ const ModalPopup = ({ show, setShow }) => {
         e.preventDefault();
         try{
             const {data} = await axios.post('http://localhost:9000/api/posts/create-post', postData);
+            toast.success('Successfully created',
+            {
+                
+                style: {
+                    border: '1px solid #55a752',
+                    padding: '16px',
+                    color: '#2a7937',
+                  },
+            });
             console.log(data);
         }
         catch(err){
