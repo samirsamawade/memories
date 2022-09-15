@@ -22,6 +22,12 @@ const ModalPopup = () => {
     const handleChange = (e) => {
         setPostData({ ...postData, [e.target.name]: e.target.value });
     };
+    const handleClose = () => {
+        setShow(!show);
+        setPostData(initialData);
+    };
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,6 +39,7 @@ const ModalPopup = () => {
 
                 const { data } = await axios.post('http://localhost:9000/api/posts/create-post', postData);
             }
+            
             toast.success('Successfully created',
                 {
 
@@ -54,7 +61,7 @@ const ModalPopup = () => {
 
     return (
         <>
-            <Modal show={show} onHide={() => setShow(!show)}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Manage Posts</Modal.Title>
                 </Modal.Header>
@@ -86,8 +93,9 @@ const ModalPopup = () => {
                         </div>
 
                         <div className="form-group d-flex justify-content-end ">
-                            <button type="submit" className="btn btn-success" >
-                                Save Changes
+                            <button type="submit" 
+                            className={`btn ${_id ? "btn-primary" : "btn-success"}`} >
+                                {`${_id ? "Update" : "Save"} Changes`}
                             </button>
                         </div>
 
