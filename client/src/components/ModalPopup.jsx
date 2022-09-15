@@ -40,16 +40,8 @@ const ModalPopup = () => {
                 const { data } = await axios.post('http://localhost:9000/api/posts/create-post', postData);
             }
             
-            toast.success('Successfully created',
-                {
-
-                    style: {
-                        border: '1px solid #55a752',
-                        padding: '16px',
-                        color: '#2a7937',
-                    },
-                });
-            setPostData(initialData)
+            toast.success('Successfully created');
+            setPostData(initialData);
             setShow(!show);
             setUpdate(!update);
         }
