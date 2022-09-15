@@ -45,7 +45,7 @@ export const deleteEvent = async (req, res) => {
 
     export const getAllEvents = async (req, res) => {
       try{
-        const event = await Event.find().sort({"updatedAt": -1});
+        const event = await Event.find().sort({"createdAt": -1});
         res.json({ Status: true, message: event });
       }
       catch (err) {
